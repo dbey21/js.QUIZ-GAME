@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QUIZ GAME</title>
+    <link rel="stylesheet" href=".style.css" />
+
+  </head>
+  <body>
+    <h1>QUIZ GAME</h1>
+    <div style="text-align: center;">
+    <button id="btn">start quiz</button></div>
+    <h1 id="time" style="text-align: center"></h1>
+  
+    <section id="question"></section>
+      <p id="notification"></p>
+      <div id="end-game" style="display: none">
+        <h1>Thanks for playing!</h1>
+        
+        <label>Enter initials</label>
+        <input id="initials" type="text" name="text" />
+          
+          <button id="submit-btn">
+            submit
+          </button>
+        
+        
+      </div>
+
+
+      
+
+
+      <div id="Final-score" style="display: none">
+      <h2> Your Final score</h2>
+      </div>
+      <section>
+        <div class="wordText"></div>
+      </section>
+      <section>
+        <div class="card results">
+          <div class = "win-loss-container">
+          <div>
+          <h2>Wins: <span class="Wins"></span> </h2>
+          <h2>Losses: <span class="Loses"></span></h2>
+        </div>
+      </section>
+      <script language="javaScript" src="script.js"></script>
+
+      
+       <!-- <section id="Initials"></section>
+      <form>
+        <div>
+          
+          <label>Enter initials</label>
+          <input id="end-game" type="text" name="text" />
+        </div>
+        <div>
+          <input type="submit" value="submit" />
+        </div>
+      </form> -->
+      
+
+    </body>
+  </html>

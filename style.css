@@ -1,0 +1,33 @@
+body{
+    background-color: gold;
+    
+
+}
+
+
+h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(162, 8, 8, 0.538);
+    
+    
+}
+
+#questions{
+    font-size: 19px;
+}
+
+#btn {
+    font-size: 28px;
+    border-color: red;
+    border-width: 5px;
+    text-align: right;
+    
+}
+
+.answer{
+    font-size: larger;
+}
+
+.Wins{
+  font-size: larger;
+}
