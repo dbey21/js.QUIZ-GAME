@@ -4,6 +4,8 @@ const quizScreen = document.querySelector("#quiz-screen");
 const secondsRemainingEl = document.querySelector("#seconds-remaining");
 const currentScoreEl = document.querySelector("#current-score");
 const currentQuestionEl = document.querySelector("#current-question");
+const finalScoreEl = document.querySelector("#final-score");
+const scoreFormEl = document.querySelector("#score-form");
 
 const endScreen = document.querySelector("#end-screen");
 let secondsRemaining = 10;
@@ -12,6 +14,10 @@ let score = 0;
 let timer;
 
 startButton?.addEventListener("click", startGame);
+scoreFormEl.addEventListener("submit", (e) => {
+  e.preventDefault();
+  saveScoreToStorage();
+});
 
 const questionsArray = [
   {
@@ -99,8 +105,6 @@ function evaluateAnswer(i) {
     currentScoreEl.textContent = score;
   }
 
-  console.log("score: ", score);
-
   currentQuestionIndex++;
 
   if (currentQuestionIndex >= questionsArray.length) endGame();
@@ -112,6 +116,17 @@ function endGame() {
   clearInterval(timer);
   // hide the quiz screen
   quizScreen.classList.add("hidden");
+  finalScoreEl.textContent = score;
   // show the end screen
   endScreen.classList.remove("hidden");
+}
+
+function saveScoreToStorage() {
+  const formData = new FormData(scoreFormEl);
+  const initials = formData.get("initials");
+  const newScore = {
+    initials,
+    points: score,
+  };
+  console.log(newScore);
 }

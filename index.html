@@ -8,7 +8,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="welcome-screen">
+    <div id="welcome-screen" class="hidden">
       <h1>My Quiz App</h1>
       <button id="Start-btn">Start</button>
     </div>
@@ -16,13 +16,17 @@
     <div id="quiz-screen" class="hidden">
       <h2>Timer: <span id="seconds-remaining"></span> seconds remaining</h2>
       <h3>Current Score: <span id="current-score"></span></h3>
-        <div id="current-question">
-
-        </div>
-   
+      <div id="current-question"></div>
     </div>
 
-    <div id="end-screen" class="hidden">Game over</div>
+    <div id="end-screen">
+      <h2>Game Over!</h2>
+      <p>You scored <span id="final-score">0</span> points</p>
+      <form id="score-form">
+        <input type="text" placeholder="Enter your initials" name="initials" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>
