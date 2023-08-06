@@ -2,7 +2,9 @@ const startButton = document.querySelector("#Start-btn");
 const welcomeScreen = document.querySelector("#welcome-screen");
 const quizScreen = document.querySelector("#quiz-screen");
 const secondsRemainingEl = document.querySelector("#seconds-remaining");
+const currentScoreEl = document.querySelector("#current-score");
 const currentQuestionEl = document.querySelector("#current-question");
+
 const endScreen = document.querySelector("#end-screen");
 let secondsRemaining = 10;
 let currentQuestionIndex = 0;
@@ -52,6 +54,7 @@ function startGame() {
   quizScreen.classList.remove("hidden");
 
   secondsRemainingEl.textContent = secondsRemaining;
+  currentScoreEl.textContent = score;
 
   timer = setInterval(() => {
     secondsRemaining--;
@@ -91,12 +94,17 @@ function evaluateAnswer(i) {
   var currentQuestion = questionsArray[currentQuestionIndex];
   const isCorrect = i === currentQuestion.correct;
 
-  if (isCorrect) score++;
+  if (isCorrect) {
+    score++;
+    currentScoreEl.textContent = score;
+  }
 
   console.log("score: ", score);
 
   currentQuestionIndex++;
-  showNextQuestion();
+
+  if (currentQuestionIndex >= questionsArray.length) endGame();
+  else showNextQuestion();
 }
 
 function endGame() {
