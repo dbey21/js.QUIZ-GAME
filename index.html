@@ -7,25 +7,50 @@
 
     <title>Document</title>
   </head>
+  <style>
+
+  </style>
   <body>
-    <div id="welcome-screen" >
+    <div id="welcome-screen">
       <h1>My Quiz App</h1>
       <button id="Start-btn">Start</button>
     </div>
 
-    <div id="quiz-screen" class="hidden">
+    <div id="quiz-screen">
       <h2>Timer: <span id="seconds-remaining"></span> seconds remaining</h2>
       <h3>Current Score: <span id="current-score"></span></h3>
       <div id="current-question"></div>
     </div>
 
-    <div id="end-screen" class="hidden">
+    <div id="end-screen"class="hidden">
       <h2>Game Over!</h2>
       <p>You scored <span id="final-score">0</span> points</p>
       <form id="score-form">
         <input type="text" placeholder="Enter your initials" name="initials" />
         <button type="submit">Submit</button>
       </form>
+
+      <table>
+        <thead>
+          <th></th>
+          <th>Initials</th>
+          <th>Score</th>
+        </thead>
+        <tbody id="table-body">
+          <!-- <tr>
+            <td>AB</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>CD</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>EF</td>
+            <td>2</td>
+          </tr> -->
+        </tbody>
+      </table>
     </div>
   </body>
   <script src="script.js"></script>

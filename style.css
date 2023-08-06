@@ -1,9 +1,28 @@
+
+
+body {
+    background: rgb(252, 244, 244) url('smiley.gif') no-repeat top left/5px 5px;
+    animation: mymove 5s infinite;
+}
+
 .hidden {
     display: none;
+}
+
+#Start-btn{
+    border-color: rgb(0, 0, 0);
 }
 
 #answer-buttons {
     display: flex;
     flex-direction: column;
     width: max-content;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
 }

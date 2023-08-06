@@ -6,6 +6,7 @@ const currentScoreEl = document.querySelector("#current-score");
 const currentQuestionEl = document.querySelector("#current-question");
 const finalScoreEl = document.querySelector("#final-score");
 const scoreFormEl = document.querySelector("#score-form");
+const tableBody = document.querySelector("#table-body");
 
 const endScreen = document.querySelector("#end-screen");
 let secondsRemaining = 10;
@@ -119,6 +120,7 @@ function endGame() {
   finalScoreEl.textContent = score;
   // show the end screen
   endScreen.classList.remove("hidden");
+  updateScoreTable();
 }
 
 function saveScoreToStorage() {
@@ -131,16 +133,38 @@ function saveScoreToStorage() {
   console.log(newScore);
 
   // read local storage
-  let scoresFromStorage = JSON.parse(localStorage.getItem('quiz scores'))
+  let scoresFromStorage = JSON.parse(localStorage.getItem("quiz scores"));
 
-  if (!scoresFromStorage || scoresFromStorage.length ===0 ){
+  if (!scoresFromStorage || scoresFromStorage.length === 0) {
     // write the new score to local storage
-    localStorage.setItem("quiz scores", JSON.stringify([newScore]))
+    localStorage.setItem("quiz scores", JSON.stringify([newScore]));
   } else {
-    scoresFromStorage.push(newScore)
+    scoresFromStorage.push(newScore);
     scoresFromStorage.sort((a, b) => b.points - a.points);
 
-
-    localStorage.setItem("quiz scores", JSON.stringify(scoresFromStorage))
+    localStorage.setItem("quiz scores", JSON.stringify(scoresFromStorage));
   }
+
+  updateScoreTable();
+}
+
+updateScoreTable();
+
+function updateScoreTable() {
+  //clear out the table
+  tableBody.innerHTML = "";
+
+  // read local storage
+  let scoresFromStorage = JSON.parse(localStorage.getItem("quiz scores"));
+
+  scoresFromStorage.forEach((entry, i) => {
+    if (i > 9) return;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${entry.initials}</td>
+        <td>${entry.points}</td>
+    `;
+    tableBody.append(tr);
+  });
 }
