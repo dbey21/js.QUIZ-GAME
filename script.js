@@ -129,4 +129,18 @@ function saveScoreToStorage() {
     points: score,
   };
   console.log(newScore);
+
+  // read local storage
+  let scoresFromStorage = JSON.parse(localStorage.getItem('quiz scores'))
+
+  if (!scoresFromStorage || scoresFromStorage.length ===0 ){
+    // write the new score to local storage
+    localStorage.setItem("quiz scores", JSON.stringify([newScore]))
+  } else {
+    scoresFromStorage.push(newScore)
+    scoresFromStorage.sort((a, b) => b.points - a.points);
+
+
+    localStorage.setItem("quiz scores", JSON.stringify(scoresFromStorage))
+  }
 }
